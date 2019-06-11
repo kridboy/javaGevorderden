@@ -4,16 +4,16 @@ public class Duo<E> {
     private E first;
     private E second;
 
-    public Duo(E first,E second) {
+    public Duo(E first, E second) {
         this.first = first;
         this.second = second;
     }
 
-    public void setFirst(E First){
+    public void setFirst(E First) {
         this.first = first;
     }
 
-    public void setSecond(E Second){
+    public void setSecond(E Second) {
         this.second = second;
     }
 
@@ -25,7 +25,7 @@ public class Duo<E> {
         return second;
     }
 
-    public void swap(){
+    public void swap() {
         E temp = second;
         second = first;
         first = temp;

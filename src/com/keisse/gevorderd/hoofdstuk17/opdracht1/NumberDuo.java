@@ -1,12 +1,13 @@
 package com.keisse.gevorderd.hoofdstuk17.opdracht1;
 
-public class NumberDuo<E extends  Number> {
+public class NumberDuo<E extends Number>{
+    public NumberDuo(E first,E second) {
+        this.first = first;
+        this.second = second;
+    }
+
     private E first;
     private E second;
-
-    public NumberDuo(E first, E second) {
-        this.first = first;
-    }
 
     public E getSecond() {
         return second;
@@ -24,7 +25,9 @@ public class NumberDuo<E extends  Number> {
         this.first = first;
     }
 
-    public double getSum(){
+    public double getSum() {
         return first.doubleValue() + second.doubleValue();
     }
+
+
 }
