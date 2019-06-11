@@ -2,8 +2,11 @@ package com.keisse.gevorderd.hoofdstuk17.opdracht1;
 
 public class DuoApp {
     public static void main(String[] args) {
-        Duo<String> sd = new Duo<String>("Belle", "Perez");
-        Duo<Integer> id = new Duo<Integer>(7, 5);
+        Duo<String> sd = new Duo<>("Belle", "Perez");
+        Duo<Integer> id = new Duo<>(7, 5);
+        NumberDuo<?> nd = new NumberDuo<>(7,5);
+
+        Integer i = nd.getFirst().intValue();
 
         String s1 = sd.getFirst();
         String s2 = sd.getSecond();
@@ -13,5 +16,7 @@ public class DuoApp {
 
         System.out.println(String.format("%s %s",s1,s2));
         System.out.println(i1+i2);
+
+
     }
 }
