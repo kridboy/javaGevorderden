@@ -2,15 +2,17 @@ package com.keisse.gevorderd.hoofdstuk17.opdracht3Lambdas.streamsIntro;
 
 import java.util.Random;
 
-public class Person {
+public class Person implements Comparable<Person>{
     public SexEnum geslacht;
     int age;
     double weight;
     int length;
     String name, surName;
+    Random x = new Random();
+
 
     public Person() {
-        Random x = new Random();
+
         setGeslacht(x.nextBoolean() == true ? SexEnum.MAN : SexEnum.VROUW);
         setWeight(x.nextDouble()*100);
         setAge(x.nextInt(100));
@@ -27,6 +29,15 @@ public class Person {
         setSurName(surName);
         setGeslacht(geslacht);
         setWeight(weight);
+    }
+
+    public Person(SexEnum geslacht){
+        setGeslacht(geslacht);
+        setWeight(x.nextDouble()*100);
+        setAge(x.nextInt(100));
+        setSurName("De brandeflorefli");
+        setName(getGeslacht() == SexEnum.MAN ? "Jan" : "Maria");
+        setLength(x.nextInt(70) + 135);
     }
 
     public void setLength(int length) {
@@ -96,12 +107,15 @@ public class Person {
     }
 
     @Override
+    public int compareTo(Person p) {
+        return this.hashCode()-p.hashCode();
+    }
+
+    @Override
     public String toString() {
         return String.format(
                 "Person{geslacht=%s, age=%d, weight=%.2f, length=%dcm ,name='%s', surName='%s'}",
                 getGeslacht(), getAge(), getWeight(), getLength(), getName(), getSurName()
         );
-
     }
 }
-
