@@ -12,7 +12,6 @@ public class Person implements Comparable<Person>{
 
 
     public Person() {
-
         setGeslacht(x.nextBoolean() == true ? SexEnum.MAN : SexEnum.VROUW);
         setWeight(x.nextDouble()*100);
         setAge(x.nextInt(100));

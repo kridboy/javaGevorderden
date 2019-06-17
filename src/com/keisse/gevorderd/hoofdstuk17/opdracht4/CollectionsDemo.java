@@ -4,6 +4,8 @@ import com.keisse.gevorderd.hoofdstuk17.opdracht3Lambdas.streamsIntro.Person;
 import com.keisse.gevorderd.hoofdstuk17.opdracht3Lambdas.streamsIntro.SexEnum;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CollectionsDemo {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -18,13 +20,12 @@ public class CollectionsDemo {
         //demo.oef3();
         //demo.oef4();
         //demo.oef5();
-        //demo.oef6();
+        demo.oef6();
         //demo.oef7();
         //demo.oef8();
         //demo.oef10();
         //demo.oef11();
-        demo.oef12();
-
+        //demo.oef12();
     }
 
     public void oef1() {
@@ -73,7 +74,7 @@ public class CollectionsDemo {
         Iterator<StringBuilder> iterator = wordList.iterator();
         System.out.print("geef woorden: ");
         String word = kb.next();
-        while (!word.contains(".")) {
+        while (!word.endsWith(".")) {
             word = kb.next();
             wordList.add(new StringBuilder(word));
         }
@@ -237,6 +238,7 @@ public class CollectionsDemo {
         Double total = 0d;
         //walletIterator.forEachRemaining();
 
+        //lambda possible?
         while (walletIterator.hasNext()) {
             Map.Entry<Coin,Integer> entry = walletIterator.next();
             total+=entry.getKey().getValue() * entry.getValue();
@@ -246,14 +248,22 @@ public class CollectionsDemo {
 
     public void oef12(){
         SortedMap<String,Person> people = new TreeMap<>();
-        people.put("domme gast",new Person());
-        people.put("domme wijf",new Person());
-        people.put("domme kut",new Person());
-        people.put("domme domme gast",new Person());
+        people.put("persoon 1: ",new Person());
+        people.put("persoon 2:",new Person());
+        people.put("persoon 3:",new Person());
+        people.put("persoon 4:",new Person());
 
         for (Map.Entry<String, Person> entry : people.entrySet()) {
             System.out.println("Key: " + entry.getKey() + ". Value: " + entry.getValue());
         }
+    }
+
+    public void oefEuler(){
+        //boxed xD !!!! die cast da gewoon instant, super fucking gemakkelijk hahahahaha, kan ook met .map(Integer::valueOf) denk ik though
+        List<Integer> multiples=  IntStream.range(3,1000)
+                .boxed()
+                .filter(e->e%3==0&&e%5==0)
+                .collect(Collectors.toList());
     }
 }
 

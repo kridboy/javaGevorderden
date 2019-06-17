@@ -129,7 +129,5 @@ public class StreamsDemo {
                 .map(e->e.getAge())
                 .forEach(System.out::println);
 
-
-
     }
 }
